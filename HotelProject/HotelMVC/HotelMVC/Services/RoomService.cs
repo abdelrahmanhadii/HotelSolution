@@ -73,22 +73,27 @@ namespace HotelMVC.Services
         {
             int Room = 0;
 
-            IEnumerable<int> RoomIds = SearchByDetail(FormData.Category,FormData.Bed);
-            foreach (var  RoomID in RoomIds)
+            IEnumerable<int> RoomIds = SearchByDetail(FormData.Category, FormData.Bed);
+            foreach (var RoomID in RoomIds)
             {
 
-               List<RoomReservation> roomReservations=  searchReservationBYRoom(RoomID);
-
-                Room = CheckAVailability(FormData.StartDate,FormData.EndDate,roomReservations);
-                if (Room!=0)
+                List<RoomReservation> roomReservations = searchReservationBYRoom(RoomID);
+                if (roomReservations.Count > 0)
                 {
-                    return Room;
+                    Room = CheckAVailability(FormData.StartDate, FormData.EndDate, roomReservations);
+                    if (Room != 0)
+                    {
+                        return Room;
+                    }
+                }
+                else
+                {
+                    return RoomID;
                 }
             }
 
             return Room;
         }
-
 
 
     }
