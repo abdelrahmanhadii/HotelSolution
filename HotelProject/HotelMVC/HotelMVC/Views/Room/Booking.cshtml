@@ -1,0 +1,36 @@
+﻿@model  HotelMVC.Models.BooKingForm
+@{
+    ViewBag.Title = "Booking";
+}
+
+<h2>Booking</h2>
+
+<form id="form" action="Booking" method="post" class="form-group">
+
+    <label for="Roomcategory">select room category</label>
+    <select name="Category" class="form-control">
+        @foreach (var item in Model.categories)
+        {
+            <option value="@item.RoomCategoryCode">@item.RoomCategory1</option>
+        }
+    </select>
+
+    <label for="Bed">select number of beds </label>
+    <select name="Bed" class="form-control">
+        @foreach (var item in Model.Beds)
+        {
+            <option value="@item.BedsCode">@item.NumberOfBeds </option>
+        }
+    </select>
+
+    <div class="form-group">
+        <label for="StartDate">Enter StartDate</label>
+        <input type="datetime" class="form-control" id="StartDate" name="StartDate" placeholder="Enter StartDate">
+    </div>
+    <div class="form-group">
+        <label for="EndDate">Enter EndDate</label>
+        <input type="datetime" class="form-control" id="EndDate" name="EndDate" placeholder="Enter EndDate">
+    </div>
+
+    <button type="submit"  class="btn btn-primary">Submit</button>
+</form>
