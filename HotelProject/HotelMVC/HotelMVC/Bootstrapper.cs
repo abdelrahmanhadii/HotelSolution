@@ -20,6 +20,9 @@ namespace HotelMVC
             var container = new UnityContainer();
             container.RegisterType<IUnitOfWork, UnitOfWork>();
             container.RegisterType<RoomService>();
+            container.RegisterType<GuestService>();
+            container.RegisterType<RoomReservationService>();
+            container.RegisterType<UserServic>();
 
             // register all your components with the container here
             // it is NOT necessary to register your controllers

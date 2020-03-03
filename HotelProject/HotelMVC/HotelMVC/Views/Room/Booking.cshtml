@@ -5,7 +5,7 @@
 
 <h2>Booking</h2>
 
-<form id="form" action="Booking" method="post" class="form-group">
+<form id="form" action=" ConfirmBooking" method="post" class="form-group">
 
     <label for="Roomcategory">select room category</label>
     <select name="Category" class="form-control">
@@ -34,3 +34,27 @@
 
     <button type="submit"  class="btn btn-primary">Submit</button>
 </form>
+
+<div id="Confirm"></div>
+    @*<script>
+        function open() {
+            $.ajax({
+                url: 'room/Booking',
+                contentType: 'application/json',
+                type: 'POST',
+                data: JSON.stringify($('#form').serializeArray().reduce(function (obj, item) {
+                    obj[item.name] = item.value;
+                    return obj;
+                }, {})),
+                success: function (view) {
+                    $("#Confirm").empty();
+                    $("#Confirm").append(view);
+                    var n = $(document).height();
+                    $('html, body').animate({ scrollTop: n }, 50);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>*@

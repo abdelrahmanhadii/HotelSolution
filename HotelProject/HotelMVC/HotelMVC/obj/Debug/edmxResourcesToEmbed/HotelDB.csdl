@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Hotel_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bed">
+    <Key>
+      <PropertyRef Name="BedsCode" />
+    </Key>
+    <Property Name="BedsCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumberOfBeds" Type="Int32" Nullable="false" />
+    <Property Name="BedsPrice" Type="Double" Nullable="false" />
+    <NavigationProperty Name="RoomDetails" Relationship="Self.FK__RoomDetai__BedsI__2C3393D0" FromRole="Beds" ToRole="RoomDetails" />
+  </EntityType>
+  <EntityType Name="Guest">
+    <Key>
+      <PropertyRef Name="GuestCode" />
+    </Key>
+    <Property Name="GuestCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuestName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NationalID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GuestAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Guest__UserId__300424B4" FromRole="Guest" ToRole="Users" />
+    <NavigationProperty Name="RoomReservations" Relationship="Self.FK__RoomReser__Guest__36B12243" FromRole="Guest" ToRole="RoomReservation" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleCode" />
+    </Key>
+    <Property Name="RoleCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Users__RoleId__25869641" FromRole="Roles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="RoomCategory">
+    <Key>
+      <PropertyRef Name="RoomCategoryCode" />
+    </Key>
+    <Property Name="RoomCategoryCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoomCategory1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CategoryPrice" Type="Double" Nullable="false" />
+    <NavigationProperty Name="RoomDetails" Relationship="Self.FK__RoomDetai__RoomC__2D27B809" FromRole="RoomCategory" ToRole="RoomDetails" />
+  </EntityType>
+  <EntityType Name="RoomDetail">
+    <Key>
+      <PropertyRef Name="RoomDetailscode" />
+    </Key>
+    <Property Name="RoomDetailscode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoomNumber" Type="Int32" Nullable="false" />
+    <Property Name="BedsID" Type="Int32" Nullable="false" />
+    <Property Name="RoomCategoryID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Bed" Relationship="Self.FK__RoomDetai__BedsI__2C3393D0" FromRole="RoomDetails" ToRole="Beds" />
+    <NavigationProperty Name="RoomCategory" Relationship="Self.FK__RoomDetai__RoomC__2D27B809" FromRole="RoomDetails" ToRole="RoomCategory" />
+    <NavigationProperty Name="RoomReservations" Relationship="Self.FK__RoomReser__RoomI__37A5467C" FromRole="RoomDetails" ToRole="RoomReservation" />
+  </EntityType>
+  <EntityType Name="RoomReservation">
+    <Key>
+      <PropertyRef Name="ReservationCode" />
+    </Key>
+    <Property Name="ReservationCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TotalPrice" Type="Double" Nullable="false" />
+    <Property Name="GuestID" Type="Int32" Nullable="false" />
+    <Property Name="RoomID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Guest" Relationship="Self.FK__RoomReser__Guest__36B12243" FromRole="RoomReservation" ToRole="Guest" />
+    <NavigationProperty Name="RoomDetail" Relationship="Self.FK__RoomReser__RoomI__37A5467C" FromRole="RoomReservation" ToRole="RoomDetails" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserCode" />
+    </Key>
+    <Property Name="UserCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserEmail" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Guests" Relationship="Self.FK__Guest__UserId__300424B4" FromRole="Users" ToRole="Guest" />
+    <NavigationProperty Name="Role" Relationship="Self.FK__Users__RoleId__25869641" FromRole="Users" ToRole="Roles" />
+  </EntityType>
+  <Association Name="FK__RoomDetai__BedsI__2C3393D0">
+    <End Role="Beds" Type="Self.Bed" Multiplicity="1" />
+    <End Role="RoomDetails" Type="Self.RoomDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beds">
+        <PropertyRef Name="BedsCode" />
+      </Principal>
+      <Dependent Role="RoomDetails">
+        <PropertyRef Name="BedsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Guest__UserId__300424B4">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserCode" />
+      </Principal>
+      <Dependent Role="Guest">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RoomReser__Guest__36B12243">
+    <End Role="Guest" Type="Self.Guest" Multiplicity="1" />
+    <End Role="RoomReservation" Type="Self.RoomReservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Guest">
+        <PropertyRef Name="GuestCode" />
+      </Principal>
+      <Dependent Role="RoomReservation">
+        <PropertyRef Name="GuestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__RoleId__25869641">
+    <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleCode" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RoomDetai__RoomC__2D27B809">
+    <End Role="RoomCategory" Type="Self.RoomCategory" Multiplicity="1" />
+    <End Role="RoomDetails" Type="Self.RoomDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomCategory">
+        <PropertyRef Name="RoomCategoryCode" />
+      </Principal>
+      <Dependent Role="RoomDetails">
+        <PropertyRef Name="RoomCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RoomReser__RoomI__37A5467C">
+    <End Role="RoomDetails" Type="Self.RoomDetail" Multiplicity="1" />
+    <End Role="RoomReservation" Type="Self.RoomReservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomDetails">
+        <PropertyRef Name="RoomDetailscode" />
+      </Principal>
+      <Dependent Role="RoomReservation">
+        <PropertyRef Name="RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Hotel_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Beds" EntityType="Self.Bed" />
+    <EntitySet Name="Guests" EntityType="Self.Guest" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="RoomCategories" EntityType="Self.RoomCategory" />
+    <EntitySet Name="RoomDetails" EntityType="Self.RoomDetail" />
+    <EntitySet Name="RoomReservations" EntityType="Self.RoomReservation" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__RoomDetai__BedsI__2C3393D0" Association="Self.FK__RoomDetai__BedsI__2C3393D0">
+      <End Role="Beds" EntitySet="Beds" />
+      <End Role="RoomDetails" EntitySet="RoomDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Guest__UserId__300424B4" Association="Self.FK__Guest__UserId__300424B4">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Guest" EntitySet="Guests" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RoomReser__Guest__36B12243" Association="Self.FK__RoomReser__Guest__36B12243">
+      <End Role="Guest" EntitySet="Guests" />
+      <End Role="RoomReservation" EntitySet="RoomReservations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__RoleId__25869641" Association="Self.FK__Users__RoleId__25869641">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RoomDetai__RoomC__2D27B809" Association="Self.FK__RoomDetai__RoomC__2D27B809">
+      <End Role="RoomCategory" EntitySet="RoomCategories" />
+      <End Role="RoomDetails" EntitySet="RoomDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RoomReser__RoomI__37A5467C" Association="Self.FK__RoomReser__RoomI__37A5467C">
+      <End Role="RoomDetails" EntitySet="RoomDetails" />
+      <End Role="RoomReservation" EntitySet="RoomReservations" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

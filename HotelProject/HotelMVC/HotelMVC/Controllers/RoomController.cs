@@ -36,12 +36,25 @@ namespace HotelMVC.Controllers
             return View(FormData);
         }
         [HttpPost]
-        public ActionResult Booking(BooKingDataForm FormData)
+        public ActionResult ConfirmBooking(BooKingDataForm FormData)
         {
-              int result = RoomStore.CheckForReservation(FormData);
+            if (FormData.StartDate < FormData.EndDate)
+            {
+                int result = RoomStore.CheckForReservation(FormData);
+                if (result > 0)
+                {
+                    ConfirmBooking Data = new ConfirmBooking
+                    {
+                        StartDate = FormData.StartDate,
+                        EndDate = FormData.EndDate,
+                        Room = RoomStore.GetRoomById(result),
+                        Price = RoomStore.RecervationPrice(FormData)
+                    };
+                    return View (Data);
+                }
+            }
+            return View();
 
-             return Content(result.ToString());
-         
         }
 
 

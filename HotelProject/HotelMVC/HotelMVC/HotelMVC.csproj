@@ -140,10 +140,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Bed.cs" />
+    <Compile Include="Bed.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\RoomReservationsController.cs" />
     <Compile Include="DAL\GenericRepository.cs" />
     <Compile Include="DAL\IGenericRepository.cs" />
     <Compile Include="DAL\IUnitOfWork.cs" />
@@ -151,17 +154,45 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Guest.cs" />
-    <Compile Include="HotelDB.cs" />
+    <Compile Include="Guest.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HotelDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HotelDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HotelDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelDB.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\DTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Role.cs" />
-    <Compile Include="RoomCategory.cs" />
-    <Compile Include="RoomDetail.cs" />
-    <Compile Include="RoomReservation.cs" />
+    <Compile Include="Role.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoomCategory.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoomDetail.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoomReservation.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Services\GuestService.cs" />
+    <Compile Include="Services\RoomReservationService.cs" />
     <Compile Include="Services\RoomService.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Services\UserServic.cs" />
+    <Compile Include="User.cs">
+      <DependentUpon>HotelDB.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -172,8 +203,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="HotelDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HotelDB.edmx</DependentUpon>
+      <LastGenOutput>HotelDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="HotelDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HotelDB.edmx</DependentUpon>
+      <LastGenOutput>HotelDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="HotelDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HotelDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="HotelDB.edmx.diagram">
+      <DependentUpon>HotelDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -197,13 +245,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Room\Booking.cshtml" />
+    <Content Include="Views\Room\ConfirmBooking.cshtml" />
+    <Content Include="Views\Home\LogIn.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\RoomReservations\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -18,6 +18,15 @@ namespace HotelMVC.Services
             db = _db;
         }
 
+        public IQueryable<RoomDetail> GetAllRooms()
+        {
+            return db.RoomDetailRepo.GetAll();
+        }
+        public RoomDetail GetRoomById(int Id)
+        {
+            return db.RoomDetailRepo.GetById(Id);
+        }
+
         public IQueryable<RoomCategory> GetAllcategories()
         {
             return db.RoomCategoryRepo.GetAll();
@@ -96,5 +105,11 @@ namespace HotelMVC.Services
         }
 
 
+        public double RecervationPrice(BooKingDataForm Data)
+        {
+            int days = Data.EndDate.Subtract(Data.StartDate).Days;
+        double price=  (db.BedRepo.GetById(Data.Bed).BedsPrice) + (db.RoomCategoryRepo.GetById(Data.Category).CategoryPrice);
+            return price * days;
+        }
     }
 }

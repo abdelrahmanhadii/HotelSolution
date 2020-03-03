@@ -8,7 +8,7 @@ namespace HotelMVC.DAL
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly HotelDB _context;
+      public Hotel_dbEntities _context;
 
         private GenericRepository<Bed> _BedRepo;
 
@@ -24,7 +24,7 @@ namespace HotelMVC.DAL
 
         private GenericRepository<User> _UserRepo ;
 
-        public UnitOfWork(HotelDB context)
+        public UnitOfWork( Hotel_dbEntities context)
         {
             _context = context;
         }

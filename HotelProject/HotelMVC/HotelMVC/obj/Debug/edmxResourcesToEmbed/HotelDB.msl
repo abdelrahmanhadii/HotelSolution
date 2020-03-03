@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Hotel_dbModelStoreContainer" CdmEntityContainer="Hotel_dbEntities">
+    <EntitySetMapping Name="Beds">
+      <EntityTypeMapping TypeName="Hotel_dbModel.Bed">
+        <MappingFragment StoreEntitySet="Beds">
+          <ScalarProperty Name="BedsCode" ColumnName="BedsCode" />
+          <ScalarProperty Name="NumberOfBeds" ColumnName="NumberOfBeds" />
+          <ScalarProperty Name="BedsPrice" ColumnName="BedsPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Guests">
+      <EntityTypeMapping TypeName="Hotel_dbModel.Guest">
+        <MappingFragment StoreEntitySet="Guest">
+          <ScalarProperty Name="GuestCode" ColumnName="GuestCode" />
+          <ScalarProperty Name="GuestName" ColumnName="GuestName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="NationalID" ColumnName="NationalID" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="GuestAddress" ColumnName="GuestAddress" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="Hotel_dbModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomCategories">
+      <EntityTypeMapping TypeName="Hotel_dbModel.RoomCategory">
+        <MappingFragment StoreEntitySet="RoomCategory">
+          <ScalarProperty Name="RoomCategoryCode" ColumnName="RoomCategoryCode" />
+          <ScalarProperty Name="RoomCategory1" ColumnName="RoomCategory" />
+          <ScalarProperty Name="CategoryPrice" ColumnName="CategoryPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomDetails">
+      <EntityTypeMapping TypeName="Hotel_dbModel.RoomDetail">
+        <MappingFragment StoreEntitySet="RoomDetails">
+          <ScalarProperty Name="RoomDetailscode" ColumnName="RoomDetailscode" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+          <ScalarProperty Name="BedsID" ColumnName="BedsID" />
+          <ScalarProperty Name="RoomCategoryID" ColumnName="RoomCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomReservations">
+      <EntityTypeMapping TypeName="Hotel_dbModel.RoomReservation">
+        <MappingFragment StoreEntitySet="RoomReservation">
+          <ScalarProperty Name="ReservationCode" ColumnName="ReservationCode" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="GuestID" ColumnName="GuestID" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Hotel_dbModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

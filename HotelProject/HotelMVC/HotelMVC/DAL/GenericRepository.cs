@@ -10,9 +10,9 @@ namespace HotelMVC.DAL
 
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private readonly HotelDB _context;
+        private readonly Hotel_dbEntities _context;
 
-        public GenericRepository(HotelDB context)
+        public GenericRepository(Hotel_dbEntities context)
         {
             _context = context;
 

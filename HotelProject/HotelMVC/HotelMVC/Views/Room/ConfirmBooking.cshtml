@@ -1,0 +1,35 @@
+﻿@model HotelMVC.Models.ConfirmBooking
+@{
+    ViewBag.Title = "ConfirmBooking";
+}
+
+<h2>ConfirmBooking</h2>
+@if (Model != null)
+{
+
+    <form id="form" action="@Url.Action("NewReservation", "RoomReservations")" method="post" class="form-group">
+
+
+        <input type="number" class="form-control" id="TotelPrice" name="GuestID" value="1" style="visibility: hidden">
+        <label>StartDate : @Model.StartDate</label>
+        <input type="datetime" class="form-control" id="StartDate" name="StartDate" value="@Model.StartDate" style="visibility: hidden">
+
+        <label>EndDate  :@Model.EndDate</label>
+        <input type="datetime" class="form-control" id="EndDate" name="EndDate" value="@Model.EndDate" style="visibility: hidden">
+
+        <label>RoomNumber : @Model.Room.RoomNumber</label>
+        <input type="number" class="form-control" id="RoomID" name="RoomID" value="@Model.Room.RoomDetailscode" style="visibility: hidden">
+
+        <label>TotelPrice : @Model.Price</label>
+        <input type="number" class="form-control" id="TotelPrice" name="TotelPrice" value="@Model.Price" style="visibility: hidden">
+
+        <button type="submit" class="btn btn-primary">Confirm Booking</button>
+    </form>
+}
+else
+{
+    <label> Not Avilable in this Date</label>
+
+}
+
+

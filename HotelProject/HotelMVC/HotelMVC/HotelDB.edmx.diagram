@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b84c75749392477382a3207c7e8213a7" Name="Diagram1">
+        <EntityTypeShape EntityType="Hotel_dbModel.Bed" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_dbModel.Guest" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_dbModel.Role" Width="1.5" PointX="1.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_dbModel.RoomCategory" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_dbModel.RoomDetail" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_dbModel.RoomReservation" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Hotel_dbModel.User" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="Hotel_dbModel.FK__RoomDetai__BedsI__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_dbModel.FK__Guest__UserId__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_dbModel.FK__RoomReser__Guest__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_dbModel.FK__Users__RoleId__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_dbModel.FK__RoomDetai__RoomC__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="Hotel_dbModel.FK__RoomReser__RoomI__37A5467C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
