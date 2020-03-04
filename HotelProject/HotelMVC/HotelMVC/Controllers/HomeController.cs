@@ -44,6 +44,7 @@ namespace HotelMVC.Controllers
                 if (user.UserPassword != null)
                 {
                     return View("Index");
+                   
                 }
                 else if (user.UserPassword == null)
                 {

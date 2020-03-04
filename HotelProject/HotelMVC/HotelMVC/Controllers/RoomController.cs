@@ -43,11 +43,12 @@ namespace HotelMVC.Controllers
                 int result = RoomStore.CheckForReservation(FormData);
                 if (result > 0)
                 {
+                    RoomDetail RoomData  = RoomStore.GetRoomById(result);
                     ConfirmBooking Data = new ConfirmBooking
                     {
                         StartDate = FormData.StartDate,
                         EndDate = FormData.EndDate,
-                        Room = RoomStore.GetRoomById(result),
+                        Room=new RoomsList {RoomId=RoomData.RoomDetailscode,RoomNum=RoomData.RoomNumber },
                         Price = RoomStore.RecervationPrice(FormData)
                     };
                     return View (Data);
@@ -56,6 +57,8 @@ namespace HotelMVC.Controllers
             return View();
 
         }
+
+      
 
 
     } 

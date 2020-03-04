@@ -144,6 +144,8 @@
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\RoomReservationsController.cs" />
@@ -253,6 +255,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Guest\" />
     <Folder Include="Views\RoomReservations\" />
   </ItemGroup>
   <ItemGroup>

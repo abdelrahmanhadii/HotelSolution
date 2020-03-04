@@ -1,0 +1,12 @@
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\bin\Debug\HotelApplication.exe.config
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\bin\Debug\HotelApplication.exe
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\bin\Debug\HotelApplication.pdb
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.csprojAssemblyReference.cache
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.Home.resources
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.LogInForm.resources
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.Properties.Resources.resources
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.csproj.GenerateResource.cache
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.csproj.CoreCompileInputs.cache
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.exe
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.pdb
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.ConfirmReservation.resources

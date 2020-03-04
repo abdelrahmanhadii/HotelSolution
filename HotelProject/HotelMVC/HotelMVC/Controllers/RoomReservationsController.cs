@@ -13,11 +13,13 @@ namespace HotelMVC.Controllers
 
         RoomReservationService RoomReservationStore;
         GuestService GuestStore;
+        RoomService RoomStore;
 
-        public RoomReservationsController(RoomReservationService _RoomReservationStore, GuestService _GuestStore)
+        public RoomReservationsController(RoomReservationService _RoomReservationStore, GuestService _GuestStore, RoomService _RoomStore)
         {
             RoomReservationStore= _RoomReservationStore;
             GuestStore = _GuestStore;
+            RoomStore = _RoomStore;
         }
 
         // GET: RoomReservations
@@ -39,6 +41,13 @@ namespace HotelMVC.Controllers
                 }
             }
             return View();
+        }
+        [HttpGet]
+        public ActionResult RoomReservationList(int RoomId)
+        {
+            List<RoomReservation> List = RoomStore.searchReservationBYRoom(RoomId);
+
+            return Json(List, JsonRequestBehavior.AllowGet);
         }
     }
 }

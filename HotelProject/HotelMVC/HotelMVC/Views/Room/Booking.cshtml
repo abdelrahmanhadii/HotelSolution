@@ -11,7 +11,7 @@
     <select name="Category" class="form-control">
         @foreach (var item in Model.categories)
         {
-            <option value="@item.RoomCategoryCode">@item.RoomCategory1</option>
+            <option value="@item.CategoryId">@item.CategoryName</option>
         }
     </select>
 
@@ -19,7 +19,7 @@
     <select name="Bed" class="form-control">
         @foreach (var item in Model.Beds)
         {
-            <option value="@item.BedsCode">@item.NumberOfBeds </option>
+            <option value="@item.BedsId">@item.BedsNum </option>
         }
     </select>
 

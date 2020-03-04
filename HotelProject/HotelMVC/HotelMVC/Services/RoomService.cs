@@ -27,13 +27,37 @@ namespace HotelMVC.Services
             return db.RoomDetailRepo.GetById(Id);
         }
 
-        public IQueryable<RoomCategory> GetAllcategories()
+        public List<Category> GetAllcategories()
         {
-            return db.RoomCategoryRepo.GetAll();
+            List<Category> categories = new List<Category>();
+            IQueryable<RoomCategory> roomCategories= db.RoomCategoryRepo.GetAll();
+            foreach (var item in roomCategories)
+            {
+                Category category = new Category
+                {
+                    CategoryId = item.RoomCategoryCode,
+                    CategoryName = item.RoomCategory1
+                };
+                categories.Add(category);
+            }
+
+            return categories;
         }
-        public IQueryable<Bed> GetAllBeds()
+        public List<BedNum> GetAllBeds()
         {
-            return db.BedRepo.GetAll();
+            List<BedNum> bedNums = new List<BedNum>();
+            IQueryable<Bed>Beds = db.BedRepo.GetAll();
+            foreach (var item in Beds)
+            {
+                BedNum bednum = new BedNum
+                {
+                   BedsId = item.BedsCode,
+                    BedsNum= item.NumberOfBeds
+                };
+              bedNums.Add(bednum);
+            }
+
+            return bedNums;
         }
 
         public IEnumerable<int> SearchByDetail(int Category, int NumOfBed)

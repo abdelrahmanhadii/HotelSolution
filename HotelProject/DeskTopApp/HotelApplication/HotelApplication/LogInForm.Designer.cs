@@ -37,12 +37,13 @@
             // 
             // Loginbutton
             // 
-            this.Loginbutton.Location = new System.Drawing.Point(391, 258);
+            this.Loginbutton.Location = new System.Drawing.Point(332, 258);
             this.Loginbutton.Name = "Loginbutton";
-            this.Loginbutton.Size = new System.Drawing.Size(75, 23);
+            this.Loginbutton.Size = new System.Drawing.Size(187, 23);
             this.Loginbutton.TabIndex = 0;
             this.Loginbutton.Text = "Login";
             this.Loginbutton.UseVisualStyleBackColor = true;
+            this.Loginbutton.Click += new System.EventHandler(this.Loginbutton_Click);
             // 
             // EmailtextBox
             // 
