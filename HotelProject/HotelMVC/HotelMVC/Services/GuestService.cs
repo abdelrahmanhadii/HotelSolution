@@ -29,6 +29,15 @@ namespace HotelMVC.Services
                 return Check;
              
         }
+        public async Task<int> UpdateGuest(int id, Guest Guest)
+        {
+
+            db.GuestRepo.Update(id,Guest);
+            int Check = await db.Save();
+            return Check;
+
+        }
+
         public Guest GetGuestById(int Id)
         {
             return db.GuestRepo.GetById(Id);

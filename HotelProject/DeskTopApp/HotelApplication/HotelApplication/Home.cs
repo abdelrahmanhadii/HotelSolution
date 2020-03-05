@@ -7,26 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RestSharp;
+using Newtonsoft.Json;
 
 namespace HotelApplication
 {
     public partial class Home : Form
     {
         public LogInForm logInForm;
-        HomeData homeData;
+  
         CheckReservationData ReservationData;
+        HomeData homeData;
 
         public Home(LogInForm _logInForm)
         { 
             logInForm = _logInForm;
             InitializeComponent();
-
+           Start();
            
         }
         
-
-     
-
         private void Home_FormClosing(object sender, FormClosingEventArgs e)
         {
             logInForm.Show();
@@ -45,38 +45,34 @@ namespace HotelApplication
                     NationaltyID= NationalIDtextBox.Text
                 };
 
+                RestRequest request = new RestRequest("admin/CheckReservation", DataFormat.Json);            
+                request.AddJsonBody(ReservationData);
+                var response = Global.client.Post(request);
+               
 
-
-
-                //send ReservationData if ok open new form  and send data else  msg date not avilabel
-                // admin/CheckReservation post
-
-                //return
-
-                ConfirmReservationData Data = new ConfirmReservationData();
+                ConfirmReservationData Data = JsonConvert.DeserializeObject<ConfirmReservationData>(response.Content);
 
                 if (Data.Room.RoomId != 0)
                 {
                     ReservationForm reservationFormData = new ReservationForm {
-                        Guest = new Guest { NationalID= NationalIDtextBox.Text },
-                        RoomReservation= new RoomReservation {
-                            StartDate = StartDateTimePicker.Value,
-                            EndDate= EndDateTimePicker.Value,
-                            RoomID=Data.Room.RoomId,
-                           TotalPrice=Data.TotalPrice
-                        },
-                        RoomNum=Data.Room.RoomNum
+
+                        NationalID = NationalIDtextBox.Text,
+                         StartDate = StartDateTimePicker.Value,
+                         EndDate= EndDateTimePicker.Value,
+                         RoomID=Data.Room.RoomId,
+                         TotalPrice=Data.TotalPrice, 
+                         RoomNum=Data.Room.RoomNum
                         
                     };
 
                     if (Data.GuestCode != 0)
                     {
-                        reservationFormData.Guest.GuestCode = Data.GuestCode;
-                        reservationFormData.Guest.GuestAddress = Data.GuestAddress;
-                        reservationFormData.Guest.GuestName = Data.GuestName;
-                        reservationFormData.Guest.Nationality = Data.Nationality;
-                        reservationFormData.Guest.PhoneNumber = Data.PhoneNumber;
-                        reservationFormData.Guest.Gender = Data.Gender;
+                        reservationFormData.GuestCode = Data.GuestCode;
+                        reservationFormData.GuestAddress = Data.GuestAddress;
+                        reservationFormData.GuestName = Data.GuestName;
+                        reservationFormData.Nationality = Data.Nationality;
+                        reservationFormData.PhoneNumber = Data.PhoneNumber;
+                        reservationFormData.Gender = Data.Gender;
                     }
                    
                     ConfirmReservation ReservationForm = new ConfirmReservation(reservationFormData);
@@ -86,11 +82,7 @@ namespace HotelApplication
                 {
                     DateMsgLabel.Text = "UnAvailable Rooms ";
                 }
-              
-
-
-               
-
+             
             }
             else
             {
@@ -102,39 +94,53 @@ namespace HotelApplication
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                
+            Room room= homeData.Rooms.Where(a => a.RoomNum == int.Parse(RoomNumtextBox.Text)).FirstOrDefault();
+                RoomslistBox.SelectedIndex = RoomslistBox.Items.IndexOf(room);
             }
         }
 
         private void RoomReservationBtn_Click(object sender, EventArgs e)
         {
-            int RoomId =((Room)RoomslistBox.SelectedItem).RoomId ;
-            //3la 7asb el reuest lo fe room reservation open new form
+            int RoomId = ((Room)RoomslistBox.SelectedItem).RoomId;
+
+            RestRequest request = new RestRequest("admin/GetRoomReservation/"+RoomId+"", DataFormat.Json);
+           
+            var response = Global.client.Post(request);
+          List<ManageReservation>Reservations = JsonConvert.DeserializeObject<List<ManageReservation>>(response.Content);
+
+            ReservationsForm ReservationForm = new ReservationsForm(Reservations, (Room)RoomslistBox.SelectedItem);
+            ReservationForm.Show();
 
         }
 
-        private void Home_Load(object sender, EventArgs e)
+       
+
+        private void Start()
         {
-            //call admin/index get
-            //respond 
-            homeData = new HomeData();
+           
+            RestRequest request = new RestRequest("admin/index", DataFormat.Json);
+            var response = Global.client.Get(request);
+            homeData = JsonConvert.DeserializeObject<HomeData>(response.Content);
+
             if (homeData != null)
             {
+
                 foreach (var item in homeData.Rooms)
                 {
                     RoomslistBox.Items.Add(item);
                 }
+                RoomslistBox.DisplayMember = "RoomNum";
                 foreach (var item in homeData.Beds)
                 {
                     NumOfBedlistBox.Items.Add(item);
                 }
+                NumOfBedlistBox.DisplayMember = "BedsNum";
                 foreach (var item in homeData.Categories)
                 {
-                   CategorylistBox.Items.Add(item);
+                    CategorylistBox.Items.Add(item);
                 }
+                CategorylistBox.DisplayMember = "CategoryName";
             }
-            
-
         }
     }
 }

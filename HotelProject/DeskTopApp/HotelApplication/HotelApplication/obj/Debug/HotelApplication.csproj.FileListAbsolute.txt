@@ -10,3 +10,9 @@ E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\o
 E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.exe
 E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.pdb
 E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.ConfirmReservation.resources
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\bin\Debug\RestSharp.dll
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\bin\Debug\RestSharp.xml
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.csproj.CopyComplete
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\bin\Debug\Newtonsoft.Json.dll
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\bin\Debug\Newtonsoft.Json.xml
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.Reservations.resources

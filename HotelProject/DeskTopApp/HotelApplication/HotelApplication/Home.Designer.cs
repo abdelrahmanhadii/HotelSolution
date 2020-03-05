@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.RecervationgroupBox = new System.Windows.Forms.GroupBox();
+            this.NationalIDlabel = new System.Windows.Forms.Label();
+            this.NationalIDtextBox = new System.Windows.Forms.TextBox();
             this.DateMsgLabel = new System.Windows.Forms.Label();
             this.CheckReservationBtn = new System.Windows.Forms.Button();
             this.EndDatelabel = new System.Windows.Forms.Label();
@@ -44,8 +46,6 @@
             this.RoomNumberlabel = new System.Windows.Forms.Label();
             this.RoomslistBox = new System.Windows.Forms.ListBox();
             this.RoomNumtextBox = new System.Windows.Forms.TextBox();
-            this.NationalIDtextBox = new System.Windows.Forms.TextBox();
-            this.NationalIDlabel = new System.Windows.Forms.Label();
             this.RecervationgroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +70,22 @@
             this.RecervationgroupBox.TabIndex = 0;
             this.RecervationgroupBox.TabStop = false;
             this.RecervationgroupBox.Text = "New Recervation";
+            // 
+            // NationalIDlabel
+            // 
+            this.NationalIDlabel.AutoSize = true;
+            this.NationalIDlabel.Location = new System.Drawing.Point(232, 314);
+            this.NationalIDlabel.Name = "NationalIDlabel";
+            this.NationalIDlabel.Size = new System.Drawing.Size(57, 13);
+            this.NationalIDlabel.TabIndex = 11;
+            this.NationalIDlabel.Text = "NationalID";
+            // 
+            // NationalIDtextBox
+            // 
+            this.NationalIDtextBox.Location = new System.Drawing.Point(231, 339);
+            this.NationalIDtextBox.Name = "NationalIDtextBox";
+            this.NationalIDtextBox.Size = new System.Drawing.Size(226, 20);
+            this.NationalIDtextBox.TabIndex = 10;
             // 
             // DateMsgLabel
             // 
@@ -172,9 +188,9 @@
             // 
             // RoomReservationBtn
             // 
-            this.RoomReservationBtn.Location = new System.Drawing.Point(43, 339);
+            this.RoomReservationBtn.Location = new System.Drawing.Point(99, 303);
             this.RoomReservationBtn.Name = "RoomReservationBtn";
-            this.RoomReservationBtn.Size = new System.Drawing.Size(276, 39);
+            this.RoomReservationBtn.Size = new System.Drawing.Size(141, 35);
             this.RoomReservationBtn.TabIndex = 9;
             this.RoomReservationBtn.Text = "RoomReservation";
             this.RoomReservationBtn.UseVisualStyleBackColor = true;
@@ -205,22 +221,6 @@
             this.RoomNumtextBox.TabIndex = 0;
             this.RoomNumtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RoomNumtextBox_KeyPress);
             // 
-            // NationalIDtextBox
-            // 
-            this.NationalIDtextBox.Location = new System.Drawing.Point(231, 339);
-            this.NationalIDtextBox.Name = "NationalIDtextBox";
-            this.NationalIDtextBox.Size = new System.Drawing.Size(226, 20);
-            this.NationalIDtextBox.TabIndex = 10;
-            // 
-            // NationalIDlabel
-            // 
-            this.NationalIDlabel.AutoSize = true;
-            this.NationalIDlabel.Location = new System.Drawing.Point(232, 314);
-            this.NationalIDlabel.Name = "NationalIDlabel";
-            this.NationalIDlabel.Size = new System.Drawing.Size(57, 13);
-            this.NationalIDlabel.TabIndex = 11;
-            this.NationalIDlabel.Text = "NationalID";
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,7 +232,6 @@
             this.Text = "Home";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Home_FormClosing);
-            this.Load += new System.EventHandler(this.Home_Load);
             this.RecervationgroupBox.ResumeLayout(false);
             this.RecervationgroupBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);

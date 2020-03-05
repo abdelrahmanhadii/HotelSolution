@@ -45,48 +45,53 @@
             this.Genderlabel = new System.Windows.Forms.Label();
             this.Phonelabel = new System.Windows.Forms.Label();
             this.Namelabel = new System.Windows.Forms.Label();
-            this.NationaltyID = new System.Windows.Forms.Label();
+            this.NationaltIDLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.MSGlabel = new System.Windows.Forms.Label();
             this.GuestgroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // StartDateLabel
             // 
             this.StartDateLabel.AutoSize = true;
-            this.StartDateLabel.Location = new System.Drawing.Point(44, 27);
+            this.StartDateLabel.Location = new System.Drawing.Point(159, 169);
             this.StartDateLabel.Name = "StartDateLabel";
-            this.StartDateLabel.Size = new System.Drawing.Size(35, 13);
+            this.StartDateLabel.Size = new System.Drawing.Size(0, 13);
             this.StartDateLabel.TabIndex = 0;
-            this.StartDateLabel.Text = "label1";
             // 
             // Pricelabel
             // 
             this.Pricelabel.AutoSize = true;
-            this.Pricelabel.Location = new System.Drawing.Point(44, 128);
+            this.Pricelabel.Location = new System.Drawing.Point(159, 135);
             this.Pricelabel.Name = "Pricelabel";
-            this.Pricelabel.Size = new System.Drawing.Size(35, 13);
+            this.Pricelabel.Size = new System.Drawing.Size(0, 13);
             this.Pricelabel.TabIndex = 1;
-            this.Pricelabel.Text = "label2";
             // 
             // RoomNumlabel
             // 
             this.RoomNumlabel.AutoSize = true;
-            this.RoomNumlabel.Location = new System.Drawing.Point(44, 93);
+            this.RoomNumlabel.Location = new System.Drawing.Point(159, 100);
             this.RoomNumlabel.Name = "RoomNumlabel";
-            this.RoomNumlabel.Size = new System.Drawing.Size(35, 13);
+            this.RoomNumlabel.Size = new System.Drawing.Size(0, 13);
             this.RoomNumlabel.TabIndex = 2;
-            this.RoomNumlabel.Text = "label3";
             // 
             // EndDateLabel
             // 
             this.EndDateLabel.AutoSize = true;
-            this.EndDateLabel.Location = new System.Drawing.Point(44, 60);
+            this.EndDateLabel.Location = new System.Drawing.Point(159, 200);
             this.EndDateLabel.Name = "EndDateLabel";
-            this.EndDateLabel.Size = new System.Drawing.Size(35, 13);
+            this.EndDateLabel.Size = new System.Drawing.Size(0, 13);
             this.EndDateLabel.TabIndex = 3;
-            this.EndDateLabel.Text = "label4";
             // 
             // GuestgroupBox
             // 
+            this.GuestgroupBox.Controls.Add(this.MSGlabel);
+            this.GuestgroupBox.Controls.Add(this.label5);
+            this.GuestgroupBox.Controls.Add(this.NationaltIDLabel);
             this.GuestgroupBox.Controls.Add(this.AddressTextBox);
             this.GuestgroupBox.Controls.Add(this.FemalecheckBox);
             this.GuestgroupBox.Controls.Add(this.MalecheckBox);
@@ -99,7 +104,6 @@
             this.GuestgroupBox.Controls.Add(this.Genderlabel);
             this.GuestgroupBox.Controls.Add(this.Phonelabel);
             this.GuestgroupBox.Controls.Add(this.Namelabel);
-            this.GuestgroupBox.Enabled = false;
             this.GuestgroupBox.Location = new System.Drawing.Point(347, 27);
             this.GuestgroupBox.Name = "GuestgroupBox";
             this.GuestgroupBox.Size = new System.Drawing.Size(441, 394);
@@ -129,6 +133,8 @@
             // MalecheckBox
             // 
             this.MalecheckBox.AutoSize = true;
+            this.MalecheckBox.Checked = true;
+            this.MalecheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.MalecheckBox.Location = new System.Drawing.Point(143, 138);
             this.MalecheckBox.Name = "MalecheckBox";
             this.MalecheckBox.Size = new System.Drawing.Size(49, 17);
@@ -139,7 +145,7 @@
             // 
             // CreateBtn
             // 
-            this.CreateBtn.Location = new System.Drawing.Point(133, 302);
+            this.CreateBtn.Location = new System.Drawing.Point(133, 335);
             this.CreateBtn.Name = "CreateBtn";
             this.CreateBtn.Size = new System.Drawing.Size(271, 32);
             this.CreateBtn.TabIndex = 11;
@@ -213,21 +219,77 @@
             this.Namelabel.TabIndex = 0;
             this.Namelabel.Text = "Name";
             // 
-            // NationaltyID
+            // NationaltIDLabel
             // 
-            this.NationaltyID.AutoSize = true;
-            this.NationaltyID.Location = new System.Drawing.Point(47, 165);
-            this.NationaltyID.Name = "NationaltyID";
-            this.NationaltyID.Size = new System.Drawing.Size(35, 13);
-            this.NationaltyID.TabIndex = 8;
-            this.NationaltyID.Text = "label1";
+            this.NationaltIDLabel.AutoSize = true;
+            this.NationaltIDLabel.Location = new System.Drawing.Point(104, 35);
+            this.NationaltIDLabel.Name = "NationaltIDLabel";
+            this.NationaltIDLabel.Size = new System.Drawing.Size(0, 13);
+            this.NationaltIDLabel.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 100);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Room Number";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(31, 135);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Total Price";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(31, 169);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "From";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(31, 200);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(20, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "To";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(29, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "National ID";
+            // 
+            // MSGlabel
+            // 
+            this.MSGlabel.AutoSize = true;
+            this.MSGlabel.ForeColor = System.Drawing.Color.Red;
+            this.MSGlabel.Location = new System.Drawing.Point(107, 290);
+            this.MSGlabel.Name = "MSGlabel";
+            this.MSGlabel.Size = new System.Drawing.Size(0, 13);
+            this.MSGlabel.TabIndex = 14;
             // 
             // ConfirmReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.NationaltyID);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.GuestgroupBox);
             this.Controls.Add(this.EndDateLabel);
             this.Controls.Add(this.RoomNumlabel);
@@ -261,6 +323,12 @@
         private System.Windows.Forms.Label Phonelabel;
         private System.Windows.Forms.Label Namelabel;
         private System.Windows.Forms.RichTextBox AddressTextBox;
-        private System.Windows.Forms.Label NationaltyID;
+        private System.Windows.Forms.Label NationaltIDLabel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label MSGlabel;
     }
 }

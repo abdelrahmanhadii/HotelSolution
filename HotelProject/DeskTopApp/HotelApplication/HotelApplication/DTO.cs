@@ -3,9 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RestSharp;
 
 namespace HotelApplication
 {
+    static class Global
+    {
+        private static  RestClient _client=new RestClient("http://localhost:51650");
+
+        public static RestClient client
+        {
+            get { return _client; }
+            set { _client = value; }
+        }
+    }
     public class LogIn
     {
         public string Email { get; set; }
@@ -54,7 +65,9 @@ namespace HotelApplication
 
     }
 
-    public class Guest
+  
+
+   public class ReservationForm
     {
         public int GuestCode { get; set; }
         public string GuestName { get; set; }
@@ -63,22 +76,43 @@ namespace HotelApplication
         public string Gender { get; set; }
         public string GuestAddress { get; set; }
         public string NationalID { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public double TotalPrice { get; set; }
+        public int RoomID { get; set; }
+      
+        public int RoomNum { get; set; }
+
     }
 
-    public class RoomReservation
+    public class NewReservation
     {
+        public int GuestCode { get; set; }
+        public string GuestName { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Nationality { get; set; }
+        public string Gender { get; set; }
+        public string GuestAddress { get; set; }
+        public string NationalID { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public double TotalPrice { get; set; }
         public int RoomID { get; set; }
     }
 
-   public class ReservationForm
+    public class ManageReservation
     {
-        public Guest Guest { get; set; }
-        public RoomReservation RoomReservation { get; set; }
-        public int RoomNum { get; set; }
+        public int ReservationId { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+    }
 
+    public class NewRoomReservation
+    {
+        public string NationalId { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public int RoomId { get; set; }
     }
 
 }

@@ -135,5 +135,20 @@ namespace HotelMVC.Services
         double price=  (db.BedRepo.GetById(Data.Bed).BedsPrice) + (db.RoomCategoryRepo.GetById(Data.Category).CategoryPrice);
             return price * days;
         }
+
+        public int CheckForReservationBYRoom(int Id,DateTime StartDate,DateTime EndDate)
+        {
+            List<RoomReservation> roomReservations = searchReservationBYRoom(Id);
+            if (roomReservations.Count > 0)
+            {
+                int Room = CheckAVailability(StartDate,EndDate, roomReservations);
+                if (Room == 0)
+                {
+                    return 0;
+                }
+            }
+            return Id;
+            
+        }
     }
 }

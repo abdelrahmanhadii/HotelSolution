@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RestSharp;
 
 namespace HotelApplication
 {
@@ -28,6 +29,12 @@ namespace HotelApplication
 
                 //send to Home/Login(Data) post
                 //respond 
+                RestRequest request = new RestRequest("Home/login", DataFormat.Json);
+                request.AddJsonBody(Data);
+                var response = Global.client.Post(request);
+
+
+              //  JsonConvert.DeserializeObject<>(response.Content);
 
                 Home Homeform = new Home(this);
                 Homeform.Show();

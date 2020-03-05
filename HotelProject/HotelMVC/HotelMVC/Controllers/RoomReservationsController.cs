@@ -42,12 +42,6 @@ namespace HotelMVC.Controllers
             }
             return View();
         }
-        [HttpGet]
-        public ActionResult RoomReservationList(int RoomId)
-        {
-            List<RoomReservation> List = RoomStore.searchReservationBYRoom(RoomId);
-
-            return Json(List, JsonRequestBehavior.AllowGet);
-        }
+       
     }
 }
