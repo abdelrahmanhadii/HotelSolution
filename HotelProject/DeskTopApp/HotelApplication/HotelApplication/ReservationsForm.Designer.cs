@@ -35,15 +35,15 @@
             this.EndDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.NationalIDtextBox = new System.Windows.Forms.TextBox();
             this.DatagroupBox = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.ReservationlistView = new System.Windows.Forms.ListView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.ReservationgroupBox = new System.Windows.Forms.GroupBox();
             this.IDHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StartDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.EndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ReservationgroupBox = new System.Windows.Forms.GroupBox();
             this.DatagroupBox.SuspendLayout();
             this.ReservationgroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -112,6 +112,33 @@
             this.DatagroupBox.TabStop = false;
             this.DatagroupBox.Text = "NewReservation";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(27, 177);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "NationalID";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(27, 110);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "EndDate";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(27, 48);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "StratDate";
+            // 
             // DeleteBtn
             // 
             this.DeleteBtn.Location = new System.Drawing.Point(85, 290);
@@ -124,54 +151,20 @@
             // 
             // ReservationlistView
             // 
+            this.ReservationlistView.CheckBoxes = true;
             this.ReservationlistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IDHeader,
             this.StartDate,
             this.EndDate});
+            this.ReservationlistView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.ReservationlistView.HideSelection = false;
             this.ReservationlistView.Location = new System.Drawing.Point(17, 19);
+            this.ReservationlistView.MultiSelect = false;
             this.ReservationlistView.Name = "ReservationlistView";
             this.ReservationlistView.Size = new System.Drawing.Size(304, 246);
             this.ReservationlistView.TabIndex = 9;
             this.ReservationlistView.UseCompatibleStateImageBehavior = false;
             this.ReservationlistView.View = System.Windows.Forms.View.Details;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 48);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "StratDate";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 110);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "EndDate";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 177);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "NationalID";
-            // 
-            // ReservationgroupBox
-            // 
-            this.ReservationgroupBox.Controls.Add(this.DeleteBtn);
-            this.ReservationgroupBox.Controls.Add(this.ReservationlistView);
-            this.ReservationgroupBox.Location = new System.Drawing.Point(29, 58);
-            this.ReservationgroupBox.Name = "ReservationgroupBox";
-            this.ReservationgroupBox.Size = new System.Drawing.Size(361, 358);
-            this.ReservationgroupBox.TabIndex = 10;
-            this.ReservationgroupBox.TabStop = false;
-            this.ReservationgroupBox.Text = "Reservation";
             // 
             // IDHeader
             // 
@@ -186,6 +179,17 @@
             // 
             this.EndDate.Text = "EndDate";
             this.EndDate.Width = 120;
+            // 
+            // ReservationgroupBox
+            // 
+            this.ReservationgroupBox.Controls.Add(this.DeleteBtn);
+            this.ReservationgroupBox.Controls.Add(this.ReservationlistView);
+            this.ReservationgroupBox.Location = new System.Drawing.Point(29, 58);
+            this.ReservationgroupBox.Name = "ReservationgroupBox";
+            this.ReservationgroupBox.Size = new System.Drawing.Size(361, 358);
+            this.ReservationgroupBox.TabIndex = 10;
+            this.ReservationgroupBox.TabStop = false;
+            this.ReservationgroupBox.Text = "Reservation";
             // 
             // ReservationsForm
             // 

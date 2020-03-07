@@ -145,6 +145,7 @@
             // EndDateTimePicker
             // 
             this.EndDateTimePicker.Location = new System.Drawing.Point(425, 260);
+            this.EndDateTimePicker.MinDate = new System.DateTime(2020, 3, 5, 0, 0, 0, 0);
             this.EndDateTimePicker.Name = "EndDateTimePicker";
             this.EndDateTimePicker.Size = new System.Drawing.Size(147, 20);
             this.EndDateTimePicker.TabIndex = 3;
@@ -152,10 +153,11 @@
             // StartDateTimePicker
             // 
             this.StartDateTimePicker.Location = new System.Drawing.Point(83, 260);
+            this.StartDateTimePicker.MinDate = new System.DateTime(2020, 3, 5, 0, 0, 0, 0);
             this.StartDateTimePicker.Name = "StartDateTimePicker";
             this.StartDateTimePicker.Size = new System.Drawing.Size(160, 20);
             this.StartDateTimePicker.TabIndex = 2;
-            this.StartDateTimePicker.Value = new System.DateTime(2020, 3, 4, 0, 0, 0, 0);
+            this.StartDateTimePicker.Value = new System.DateTime(2020, 3, 5, 0, 0, 0, 0);
             // 
             // NumOfBedlistBox
             // 

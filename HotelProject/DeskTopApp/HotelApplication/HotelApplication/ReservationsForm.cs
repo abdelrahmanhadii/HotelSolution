@@ -22,15 +22,15 @@ namespace HotelApplication
             InitializeComponent();
             Reservations=_Reservations;
             Room = _Room;
+            Start();
         }
 
-        private void ReservationsForm_Load(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void Start()
         {
+            StratDateTimePicker.MinDate = DateTime.Now;
+            EndDateTimePicker.MinDate = DateTime.Now;
             RoomNumlabel.Text = Room.RoomNum.ToString();
             if (Reservations == null)
             {
@@ -42,12 +42,25 @@ namespace HotelApplication
                 foreach (var item in Reservations)
                 {
 
-                
-               
-                }
-            
+                    ListViewItem NewItem = new ListViewItem();
+                    NewItem.Text = item.ReservationId.ToString();
+                    ListViewItem.ListViewSubItem[] SubItems;
+
+                    SubItems = new ListViewItem.ListViewSubItem[]
+                        {new ListViewItem.ListViewSubItem(NewItem,item.StartDate.ToString()),
+                        new  ListViewItem.ListViewSubItem(NewItem,item.StartDate.ToString())
+                        };
+                    NewItem.SubItems.AddRange(SubItems);
+
+                    ReservationlistView.Items.Add(NewItem);
+                    
 
                 }
+              
+
+
+            }
+            
 
         }
 
@@ -63,13 +76,13 @@ namespace HotelApplication
                     NationalId = NationalIDtextBox.Text
                 };
 
-                RestRequest request = new RestRequest("admin/AdminRoomReservation", DataFormat.Json);
+                RestRequest request = new RestRequest("admin/RoomNewReservation", DataFormat.Json);
                 request.AddJsonBody(NewReservationData);
                 var response = Global.client.Post(request);
 
 
               ConfirmReservationData Data = JsonConvert.DeserializeObject<ConfirmReservationData>(response.Content);
-
+               
 
                 if (Data.Room.RoomId != 0)
                 {
@@ -105,13 +118,22 @@ namespace HotelApplication
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            //fadl el id
-            RestRequest request = new RestRequest("admin/DeleteReservation", DataFormat.Json);
-       
-            var response = Global.client.Post(request);
-            int Data = JsonConvert.DeserializeObject<int>(response.Content);
 
-            //ams7 el select item
+
+            if (ReservationlistView.CheckedItems != null)
+
+            {
+                int Id = int.Parse(ReservationlistView.CheckedItems[0].Text);
+                RestRequest request = new RestRequest("admin/DeleteReservation/" +Id+ "", DataFormat.Json);
+
+                var response = Global.client.Post(request);
+                int Data = JsonConvert.DeserializeObject<int>(response.Content);
+                if (Data > 0)
+                {
+                    ReservationlistView.Items.Remove(ReservationlistView.CheckedItems[0]);
+                }
+            }
+
 
         }
     }

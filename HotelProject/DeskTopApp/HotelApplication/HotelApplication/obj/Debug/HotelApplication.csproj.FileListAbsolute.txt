@@ -15,4 +15,4 @@ E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\b
 E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.csproj.CopyComplete
 E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\bin\Debug\Newtonsoft.Json.dll
 E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\bin\Debug\Newtonsoft.Json.xml
-E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.Reservations.resources
+E:\new\HotelSolution\HotelProject\DeskTopApp\HotelApplication\HotelApplication\obj\Debug\HotelApplication.ReservationsForm.resources

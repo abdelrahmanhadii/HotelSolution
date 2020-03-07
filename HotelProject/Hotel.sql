@@ -48,3 +48,13 @@ GuestID int references Guest(GuestCode)  on delete no action on update cascade n
 RoomID int references RoomDetails(RoomDetailscode) on delete no action on update cascade not null)
  
 
+
+
+ INSERT INTO Beds(NumberOfBeds,BedsPrice)
+VALUES ('1','1000'),('2','800'),('3','600');
+
+INSERT INTO RoomCategory(RoomCategory,CategoryPrice)
+VALUES ('Class A','1000'),('Class B','800'),('Class C','600');
+
+INSERT INTO RoomDetails(RoomNumber,BedsID,RoomCategoryID)
+VALUES ('111','1','1'),('121','2','1'),('131','3','1'),('212','1','2'),('222','2','2'),('232','3','2'),('313','1','3'),('323','2','3'),('333','3','3');

@@ -41,6 +41,7 @@ namespace HotelMVC.Controllers
             return Json(Data, JsonRequestBehavior.AllowGet);
         }
 
+
         [HttpPost]
         public ActionResult CheckReservation(AdminReservationData Data)
         {
@@ -57,9 +58,7 @@ namespace HotelMVC.Controllers
                 ConfirmReservation.PhoneNumber = Guest.PhoneNumber;
 
             }
-
             int result = RoomStore.CheckForReservation(new BooKingDataForm { StartDate = Data.StartDate, EndDate = Data.EndDate, Category = Data.CategoryID, Bed = Data.NumOfBedId });
-
             if (result > 0)
             {
                 RoomDetail RoomData = RoomStore.GetRoomById(result);
@@ -69,13 +68,15 @@ namespace HotelMVC.Controllers
             }
 
             return Json(ConfirmReservation, JsonRequestBehavior.AllowGet);
-
         }
+
+
         [HttpPost]
         public async Task<ActionResult> NewReservation(AdminNewReservation Data)
         {
             int result;
             Guest guest = new Guest {
+                GuestCode=0,
                 GuestName=Data.GuestName,
                 NationalID=Data.NationalID,
                 Nationality=Data.Nationality,
@@ -87,26 +88,20 @@ namespace HotelMVC.Controllers
             if (Data.GuestCode != 0)
             {
                 guest.GuestCode = Data.GuestCode;
-                 result = await GuestStore.UpdateGuest(guest.GuestCode, guest);
-                return Json(result, JsonRequestBehavior.AllowGet);
+                result = await GuestStore.UpdateGuest(guest.GuestCode, guest);
             }
             else
             {
                  result = await GuestStore.AddGuest(guest);
-                return Json(result, JsonRequestBehavior.AllowGet);
             }
             guest = GuestStore.GetGuestByNationalId(Data.NationalID);
-
             RoomReservation roomReservation = new RoomReservation {
                 StartDate=Data.StartDate,
                 EndDate=Data.EndDate,
                 RoomID=Data.RoomID,
                 GuestID=guest.GuestCode
             };
-
             result= await RoomReservationstore.CreatNewReservation(roomReservation);
-            
-
             return Json(result, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
@@ -133,12 +128,19 @@ namespace HotelMVC.Controllers
 
             }
             return Json(Data, JsonRequestBehavior.AllowGet);
-
         }
         [HttpPost]
         public ActionResult RoomNewReservation(AdminRoomReservation Data)
         {
             AdminConfirmReservation ConfirmReservation = new AdminConfirmReservation();
+            int result = RoomStore.CheckForReservationBYRoom(Data.RoomId, Data.StartDate, Data.EndDate);
+
+            if (result > 0)
+            {
+                RoomDetail RoomData = RoomStore.GetRoomById(result);
+                ConfirmReservation.Room = new RoomsList { RoomId = RoomData.RoomDetailscode, RoomNum = RoomData.RoomNumber };
+                ConfirmReservation.TotalPrice = RoomStore.RecervationPrice(new BooKingDataForm { StartDate = Data.StartDate, EndDate = Data.EndDate, Category = RoomData.RoomCategoryID, Bed = RoomData.BedsID });
+            }
 
             Guest Guest = GuestStore.GetGuestByNationalId(Data.NationalId);
             if (Guest != null)
@@ -151,19 +153,10 @@ namespace HotelMVC.Controllers
                 ConfirmReservation.PhoneNumber = Guest.PhoneNumber;
 
             }
-            int result = RoomStore.CheckForReservationBYRoom(Data.RoomId,Data.StartDate,Data.EndDate);
-
-            if (result > 0)
-            {
-                RoomDetail RoomData = RoomStore.GetRoomById(result);
-                ConfirmReservation.Room = new RoomsList { RoomId = RoomData.RoomDetailscode, RoomNum = RoomData.RoomNumber };
-                ConfirmReservation.TotalPrice = RoomStore.RecervationPrice(new BooKingDataForm { StartDate = Data.StartDate, EndDate = Data.EndDate, Category = Data.CategoryID, Bed = Data.NumOfBedId });
-
-            }
-
             return Json(ConfirmReservation, JsonRequestBehavior.AllowGet);
-
         }
+
+
         [HttpPost]
         public async Task <ActionResult> DeleteReservation(int Id)
         {

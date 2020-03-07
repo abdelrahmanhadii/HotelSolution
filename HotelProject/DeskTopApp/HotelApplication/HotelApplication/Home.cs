@@ -48,8 +48,7 @@ namespace HotelApplication
                 RestRequest request = new RestRequest("admin/CheckReservation", DataFormat.Json);            
                 request.AddJsonBody(ReservationData);
                 var response = Global.client.Post(request);
-               
-
+              
                 ConfirmReservationData Data = JsonConvert.DeserializeObject<ConfirmReservationData>(response.Content);
 
                 if (Data.Room.RoomId != 0)
@@ -117,7 +116,9 @@ namespace HotelApplication
 
         private void Start()
         {
-           
+
+            StartDateTimePicker.MinDate = DateTime.Now;
+            EndDateTimePicker.MinDate = DateTime.Now;
             RestRequest request = new RestRequest("admin/index", DataFormat.Json);
             var response = Global.client.Get(request);
             homeData = JsonConvert.DeserializeObject<HomeData>(response.Content);
